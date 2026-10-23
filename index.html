@@ -505,6 +505,7 @@ html[lang="en"] [data-l="es"]{display:none !important}
           <div class="slot">
             <span class="day"><span data-l="es">Viernes</span><span data-l="en">Friday</span></span>
             <span class="time"><span data-l="es">19:00</span><span data-l="en">7 pm</span></span>
+            <span class="note" data-ends="2026-10-30T20:00:00-06:00"><span data-l="es">Estreno: viernes 30 de octubre</span><span data-l="en">Premieres Friday, October 30</span></span>
           </div>
           <p class="tagline"><span data-l="es">Las voces de ahora, de cerca.</span><span data-l="en">Today’s voices, up close.</span></p>
         </div>
@@ -527,7 +528,7 @@ html[lang="en"] [data-l="es"]{display:none !important}
       <div class="day-cell on"><b><span data-l="es">Martes</span><span data-l="en">Tuesday</span></b><span><span data-l="es">20:00</span><span data-l="en">8 pm</span> · La Excusa es el Jazz</span><span><span data-l="es">21:00</span><span data-l="en">9 pm</span> · Nueva Clave Jazz</span></div>
       <div class="day-cell on"><b><span data-l="es">Miércoles</span><span data-l="en">Wednesday</span></b><span><span data-l="es">20:00</span><span data-l="en">8 pm</span> · Epistrofía</span><span><span data-l="es">21:00</span><span data-l="en">9 pm</span> · Texturas</span></div>
       <div class="day-cell on"><b><span data-l="es">Jueves</span><span data-l="en">Thursday</span></b><span><span data-l="es">20:00</span><span data-l="en">8 pm</span> · El Pequeño Pingüino</span><span><span data-l="es">21:30</span><span data-l="en">9:30 pm</span> · El Cronófono</span></div>
-      <div class="day-cell special"><b><span data-l="es">Viernes</span><span data-l="en">Friday</span></b><span><span data-l="es">19:00</span><span data-l="en">7 pm</span> · Jazztation</span><span><span data-l="es">20:00 · División Especiales</span><span data-l="en">8 pm · Specials Division</span></span></div>
+      <div class="day-cell special"><b><span data-l="es">Viernes</span><span data-l="en">Friday</span></b><span><span data-l="es">19:00</span><span data-l="en">7 pm</span> · Jazztation<span data-ends="2026-10-30T20:00:00-06:00"><span data-l="es"> (desde el 30 oct)</span><span data-l="en"> (from Oct 30)</span></span></span><span><span data-l="es">20:00 · División Especiales</span><span data-l="en">8 pm · Specials Division</span></span></div>
       <div class="day-cell"><b><span data-l="es">Sábado</span><span data-l="en">Saturday</span></b><span class="rest"><span data-l="es">Selección continua</span><span data-l="en">Curated music, all day</span></span></div>
       <div class="day-cell"><b><span data-l="es">Domingo</span><span data-l="en">Sunday</span></b><span class="rest"><span data-l="es">Selección continua</span><span data-l="en">Curated music, all day</span></span></div>
     </div>
@@ -672,19 +673,19 @@ html[lang="en"] [data-l="es"]{display:none !important}
     2: [{t:'20:00', d:60, n:'La Excusa es el Jazz', h:'Dulce Resillas'}, {t:'21:00', d:60, n:'Nueva Clave Jazz', h:'Fátima Meléndez'}],
     3: [{t:'20:00', d:60, n:'Epistrofía', h:'Pepe Fernández'}, {t:'21:00', d:60, n:'Texturas', h:'Luis Matías'}],
     4: [{t:'20:00', d:90, n:'El Pequeño Pingüino de Jazz', h:'Erik Montenegro', x:{es:'Nuevos episodios', en:'New episodes'}}, {t:'21:30', d:60, n:'El Cronófono', h:'Octavio Herrero'}],
-    5: [{t:'19:00', d:60, n:'Jazztation', h:'Dannah Garay'}]
+    5: [{t:'19:00', d:60, n:'Jazztation', h:'Dannah Garay', from:'2026-10-30'}]
   };
   var DIV = {es:'Hipnótika División Especiales', en:'Hipnótika Specials Division'};
   var ENCORE = {t:'', d:60, n:{es:'Repetición: el estreno de Hipnótika Jazz', en:'Encore: the Hipnótika Jazz launch broadcast'}, sub:{es:'Retransmisión', en:'Encore broadcast'}};
   function at(base, time){ var o = {}; for (var k in base) o[k] = base[k]; o.t = time; return o; }
   var EXTRA = {
-    '2026-10-23': [at(ENCORE, '13:00')],
+    '2026-10-23': [at(ENCORE, '13:00'), {t:'20:00', d:60, n:'Texturas', sub:{es:'Con Luis Matías · Repetición', en:'With Luis Matías · Encore'}}],
     '2026-10-31': [at(ENCORE, '14:00')],
     '2026-11-20': [{t:'20:00', d:60, n:{es:'Coltrane 100 años · Primera parte', en:'Coltrane at 100 · Part one'}, sub:DIV}],
     '2026-11-27': [{t:'20:00', d:60, n:{es:'Coltrane 100 años · Segunda parte', en:'Coltrane at 100 · Part two'}, sub:DIV}]
   };
   function dayShows(wd, key){
-    return (SHOWS[wd] || []).concat(EXTRA[key] || []).sort(function(a, b){ return mins(a.t) - mins(b.t); });
+    return (SHOWS[wd] || []).filter(function(s){ return !s.from || key >= s.from; }).concat(EXTRA[key] || []).sort(function(a, b){ return mins(a.t) - mins(b.t); });
   }
   var DAYS = {es:['domingo','lunes','martes','miércoles','jueves','viernes','sábado'], en:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']};
   var MONTHS = {es:['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'], en:['January','February','March','April','May','June','July','August','September','October','November','December']};

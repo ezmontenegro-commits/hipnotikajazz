@@ -240,6 +240,20 @@ html[lang="en"] [data-l="es"]{display:none !important}
 .news-list h3{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.25}
 .news-list p{font-size:16px;color:var(--body-on-light)}
 
+/* En los medios */
+.press{background:var(--ink-raised);color:var(--text-on-dark);border-top:1px solid var(--line-dark)}
+.press .wrap{display:flex;flex-direction:column;gap:48px;padding-top:104px;padding-bottom:104px}
+.press .eyebrow{color:var(--gold)}
+.press-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.press-card{display:flex;flex-direction:column;gap:20px;padding:40px;border:1px solid var(--line-dark-2);border-radius:var(--radius);background:var(--ink)}
+.press-card .outlet{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--gold)}
+.press-card blockquote{margin:0;font-family:var(--serif);font-style:italic;font-weight:300;font-size:30px;line-height:1.3;color:var(--text-on-dark)}
+.press-card h3{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.3;color:var(--text-on-dark)}
+.press-card blockquote + h3{font-size:18px;font-family:var(--sans);font-weight:700;color:var(--text-on-dark-2)}
+.press-card .meta{font-size:15px;color:var(--muted-on-dark)}
+.press-card .read{margin-top:auto;display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:none;color:var(--gold)}
+.press-card .read:hover{color:var(--text-on-dark)}
+
 /* Cierre */
 .site-footer{background:var(--ink);color:var(--text-on-dark-2)}
 .site-footer .wrap{display:flex;flex-direction:column;gap:64px;padding-top:96px;padding-bottom:48px}
@@ -278,6 +292,10 @@ html[lang="en"] [data-l="es"]{display:none !important}
   .feature h3{font-size:52px}
   .week{grid-template-columns:repeat(2,minmax(0,1fr))}
   .news-list time{flex-basis:100%}
+  .press .wrap{padding-top:72px;padding-bottom:72px;gap:40px}
+  .press-grid{grid-template-columns:minmax(0,1fr)}
+  .press-card{padding:28px}
+  .press-card blockquote{font-size:24px}
   .site-footer .wrap{padding-top:64px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -298,6 +316,7 @@ html[lang="en"] [data-l="es"]{display:none !important}
       <a class="sec-link" href="#programacion"><span data-l="es">Programación</span><span data-l="en">Schedule</span></a>
       <a class="sec-link" href="#especiales"><span data-l="es">Especiales</span><span data-l="en">Specials</span></a>
       <a class="sec-link" href="#noticias"><span data-l="es">Noticias</span><span data-l="en">News</span></a>
+      <a class="sec-link" href="#prensa"><span data-l="es">Prensa</span><span data-l="en">Press</span></a>
       <div class="lang" role="group" aria-label="Idioma / Language">
         <button type="button" data-set-lang="es" aria-pressed="true">ES</button><span aria-hidden="true">/</span><button type="button" data-set-lang="en" aria-pressed="false">EN</button>
       </div>
@@ -616,6 +635,33 @@ html[lang="en"] [data-l="es"]{display:none !important}
         </div>
       </li>
     </ul>
+  </div>
+</section>
+
+<section class="press" id="prensa" aria-labelledby="press-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow"><span data-l="es">Prensa</span><span data-l="en">Press</span></p>
+        <h2 class="section-title" id="press-title"><span data-l="es">En los medios</span><span data-l="en">In the media</span></h2>
+      </div>
+    </div>
+    <div class="press-grid">
+      <article class="press-card">
+        <p class="outlet">La Jornada</p>
+        <blockquote lang="es">«Gente profesional, con talento y con misericordia, que hace buen uso de todas estas herramientas para […] concretar proyectos de excelencia. Erik Montenegro es uno de estos personajes».</blockquote>
+        <h3>Hipnótika // Una enésima versión de Erik Montenegro</h3>
+        <p class="meta"><span data-l="es">Antonio Malacara · columna «Jazz» · 30 de octubre de 2026 · Primera parte</span><span data-l="en">Antonio Malacara · “Jazz” column · October 30, 2026 · Part one</span></p>
+        <a class="read" href="https://www.jornada.com.mx/noticia/2026/10/30/columnas/hipnotika-una-enesima-version-de-erik-montenegro-jazz" target="_blank" rel="noopener"><span data-l="es">Leer en La Jornada →</span><span data-l="en">Read in La Jornada →</span></a>
+      </article>
+      <article class="press-card">
+        <p class="outlet">Libre en el Sur</p>
+        <blockquote lang="es">«Nace la única y mejor emisora netamente en línea con ese género».</blockquote>
+        <h3>Dar la vuelta / Hipnótika Jazz</h3>
+        <p class="meta"><span data-l="es">Ana Cecilia Terrazas · columna «Dar la vuelta» · 25 de octubre de 2026</span><span data-l="en">Ana Cecilia Terrazas · “Dar la vuelta” column · October 25, 2026</span></p>
+        <a class="read" href="https://libreenelsur.mx/hipnotika-jazz-relato-ana-cecilia-terrazas-dar-la-vuelta/" target="_blank" rel="noopener"><span data-l="es">Leer en Libre en el Sur →</span><span data-l="en">Read in Libre en el Sur →</span></a>
+      </article>
+    </div>
   </div>
 </section>
 
